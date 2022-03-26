@@ -11,4 +11,4 @@ output_pdf=$2
 
 mogrify -trim "$images_dir"/*
 pngquant "$images_dir"/*
-convert "$images_dir"/* +repage "$output_pdf"
+convert "$images_dir"/*fs8.png +repage "orig-$output_pdf"
