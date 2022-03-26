@@ -10,6 +10,7 @@ start_page=$1
 end_page=$2
 out_dir=$3
 
+mkdir -p "$out_dir"
 for ((i = $start_page; i <= $end_page; i++))
 do
 	page=$(printf "%05d\n" $i)
