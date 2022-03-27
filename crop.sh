@@ -17,11 +17,8 @@ resol=$(identify "$image" | awk '{print $3}')
 width=$(echo "$resol" | awk -F'x' '{print $1}')
 height=$(echo "$resol" | awk -F'x' '{print $2}')
 
-echo "image resol is $width, $height"
-
 new_width=$((width - left - right))
 new_height=$((height - top - bottom))
 crop_arg="$new_width"x"$new_height"+"$left"+"$top"
 
-echo "crop arg: $crop_arg"
 convert "$image" -crop "$crop_arg" "$image"
