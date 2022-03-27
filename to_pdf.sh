@@ -27,8 +27,16 @@ echo "trim"
 mogrify -trim "$images_dir"/*
 echo "compress images"
 pngquant "$images_dir"/*
+
+echo "remove uncompressed images"
+for file in "$images_dir"/*fs8.png
+do
+	name=$(echo "$file" | awk -F'-fs8' '{print $1}')
+	mv "$file" "$name.png"
+done
+
 echo "make one pdf"
-convert "$images_dir"/*fs8.png +repage "$orig_output_pdf"
+convert "$images_dir"/*.png +repage "$orig_output_pdf"
 echo "reduce size for ebook"
 gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook \
 	-dNOPAUSE -dQUIET -dBATCH -sOutputFile="$output_pdf" "$orig_output_pdf"
