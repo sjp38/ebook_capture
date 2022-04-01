@@ -2,13 +2,13 @@
 
 if [ $# -ne 3 ]
 then
-	echo "Usage: $0 <start page> <end page> <output directory>"
+	echo "Usage: $0 <output directory> <start page> <end page>"
 	exit 1
 fi
 
-start_page=$1
-end_page=$2
-out_dir=$3
+out_dir=$1
+start_page=$2
+end_page=$3
 
 mkdir -p "$out_dir"
 for ((i = $start_page; i <= $end_page; i++))
