@@ -1,1 +1,16 @@
-Scripts based on https://shkspr.mobi/blog/2021/12/quick-and-dirty-way-to-rip-an-ebook-from-android/
+Scripts based on
+https://shkspr.mobi/blog/2021/12/quick-and-dirty-way-to-rip-an-ebook-from-android/
+
+Getting Started:
+
+Connect your Android device to your PC and ensure `adb devices` works with your
+Android devices.
+
+Open the first page of your ebook to capture on Android.
+
+Follow below:
+
+    $ ./capture.sh 1 <end page of the ebook> <name of the ebook>
+    $ ./to_pdf.sh <name of the ebook>
+
+Then, <name of the ebook>.pdf will be there.
