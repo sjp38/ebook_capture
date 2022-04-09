@@ -49,8 +49,8 @@ gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook \
 	-dNOPAUSE -dQUIET -dBATCH \
 	-sOutputFile="$compressed_output_pdf" "$orig_output_pdf"
 
-orig_sz=$(stat --printf"%s" "$orig_output_pdf")
-compressed_sz=$(stat --printf"%s" "%compressed_output_pdf")
+orig_sz=$(stat --printf "%s" "$orig_output_pdf")
+compressed_sz=$(stat --printf "%s" "%compressed_output_pdf")
 if [ $orig_sz -lt $compressed_sz ]
 then
 	mv "$orig_output_pdf" "$output_pdf"
