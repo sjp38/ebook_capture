@@ -14,7 +14,7 @@ mkdir -p "$out_dir"
 for ((i = $start_page; i <= $end_page; i++))
 do
 	page=$(printf "%05d\n" $i)
-	percent=$((i * 100 / (end_page - start_page + 1)))
+	percent=$(((i - start_page) * 100 / (end_page - start_page + 1)))
 	echo "capturing $page page ($percent % done)"
 	adb exec-out screencap -p > "$out_dir/$page.png"
 	adb shell input tap 1000 2000
